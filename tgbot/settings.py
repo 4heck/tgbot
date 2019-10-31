@@ -9,7 +9,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['localhost']
 
 INSTALLED_APPS = [
-    'btc_checker',
+    'tgnotes',
     'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',

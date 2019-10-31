@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 import misc
 import telebot
 from telebot import apihelper
@@ -46,13 +44,15 @@ def send_age(message, name='None'):
         age = message.text
         bot.send_message(message.chat.id, 'Тебя зовут {} и тебе {} лет, все верно?'.format(name, age))
 
+
 @bot.message_handler(content_types=['text'])
-def send_text(message, answer="Wait a second, please..."):
+def send_text(message):
     if message.text == 'Привет':
         bot.send_message(message.chat.id, 'Привет, мой создатель')
     elif message.text == 'Сколько стоит BTC?':
         bot.send_message(message.chat.id, get_btc())
 
 
-print("Bot started...")
-bot.polling()
+if __name__ == '__main__':
+    print("Bot started...")
+    bot.polling(none_stop=True)

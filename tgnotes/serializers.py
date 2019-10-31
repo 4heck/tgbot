@@ -1,14 +1,14 @@
 from rest_framework import serializers
 
 
-class ArticleSerializer(serializers.Serializer):
+class NoteSerializer(serializers.Serializer):
     title = serializers.CharField(max_length=120)
     description = serializers.CharField()
     body = serializers.CharField()
     author_id = serializers.IntegerField()
 
     def create(self, validated_data):
-        return Article.objects.create(**validated_data)
+        return Note.objects.create(**validated_data)
 
     def update(self, instance, validated_data):
         instance.title = validated_data.get('title', instance.title)
